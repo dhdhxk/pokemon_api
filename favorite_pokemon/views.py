@@ -12,8 +12,7 @@ def index_view(request):
 
     # Create dict for return value
     output: dict = {
-        'pokemons': [],
-        'base_happiness_stat': {}
+        'pokemons': []
     }
 
     # Create list to store base_happiness
@@ -25,6 +24,7 @@ def index_view(request):
     # If the request has &get_happiness=true
     if request.GET.get('get_happiness') == "true":
         is_extended = True
+        output['base_happiness_stat'] = {}
 
     try:
         pokeapi_inst = Pokeapi()  # Initialize Instance
