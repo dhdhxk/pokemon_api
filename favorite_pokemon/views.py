@@ -37,7 +37,7 @@ def index_view(request):
             species_data = pokeapi_inst.retrieve_pokemon_species(pokemon_data["species"]).json()
 
             # Get 2 Random move index
-            move_list: list = random.sample(range(0, len(pokemon_data['moves'])-1), 2)
+            move_list: list = random.sample(range(0, len(pokemon_data['moves'])), 2)
 
             # Store base happiness to get statistics (Task 2)
             base_happiness_list.append(species_data['base_happiness'])
