@@ -1,7 +1,6 @@
 import random
-import json
 import statistics
-from django.http.response import HttpResponse
+from django.http.response import JsonResponse
 from favorite_pokemon.libs.pokeapi import Pokeapi
 
 
@@ -66,6 +65,6 @@ def index_view(request):
             # Calculate Average
             output['base_happiness_stat']['average'] = sum(base_happiness_list) / len(base_happiness_list)
 
-        return HttpResponse(json.dumps(output))
+        return JsonResponse(output)
     except Exception as e:
-        return HttpResponse(e)
+        return SystemExit(e)
